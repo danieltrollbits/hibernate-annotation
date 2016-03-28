@@ -1,0 +1,6 @@
+create table ROLE (id int not null auto_increment, role varchar(255), primary key (id));
+
+insert into ROLE (role) values('Software Developer');
+insert into ROLE (role) values('QA Engineer');
+insert into ROLE (role) values('Project Manager');
+insert into ROLE (role) values('Fasttrack Intructor'); 

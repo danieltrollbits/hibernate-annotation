@@ -1,0 +1,12 @@
+create table PERSON (id int not null auto_increment, first_name varchar(255), middle_name varchar(255), last_name varchar(255), gender varchar(255), birthdate date, employed tinyint, gwa float, role varchar(255), primary key (id));
+
+create table ADDRESS (person_id int not null auto_increment, street varchar(255), house_no int, barangay varchar(255), subdivision varchar(255), city varchar(255), zip_code varchar(255), primary key (person_id), foreign key(person_id) references PERSON(id));
+
+create table CONTACT (id int not null auto_increment, type varchar(255), value varchar(255), person_id int not null, primary key (id), foreign key (person_id) references PERSON(id));
+
+insert into PERSON (first_name,middle_name,last_name,gender,birthdate,employed,gwa,role) values('asd','asd','asd','MALE','1212-12-12',1,2.1,'ADMIN');
+
+insert into ADDRESS (person_id, street, house_no, barangay, subdivision, city, zip_code) values((select id from PERSON where id='1'),'qwe',123,'qwe','qwe','qwe','qwe');
+
+insert into CONTACT (type,value,person_id) values('MOBILE','123123',(select id from PERSON where id='1'));
+insert into CONTACT (type,value,person_id) values('PHONE','45454545',(select id from PERSON where id='1'));
